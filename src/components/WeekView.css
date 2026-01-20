@@ -1,0 +1,198 @@
+.week-view {
+  width: 100%;
+}
+
+.week-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 12px;
+}
+
+.week-day-box {
+  background: white;
+  border-radius: 12px;
+  padding: 16px;
+  min-height: 300px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+.week-day-box:hover {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.week-day-box.today {
+  background: linear-gradient(135deg, #f5f7ff 0%, #fff5f8 100%);
+  border: 2px solid #a8b3ff;
+}
+
+.day-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  border-bottom: 2px solid #f0f0f0;
+}
+
+.week-day-box.today .day-header {
+  border-bottom-color: #a8b3ff;
+}
+
+.day-name {
+  font-size: 14px;
+  font-weight: 600;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.week-day-box.today .day-name {
+  color: #6c8eff;
+}
+
+.day-date {
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.week-day-box.today .day-date {
+  color: #6c8eff;
+}
+
+.day-todos {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.no-todos-day {
+  text-align: center;
+  padding: 20px 10px;
+  color: #ccc;
+  font-size: 13px;
+}
+
+.day-todo-item {
+  background: #f8f8f8;
+  padding: 10px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.day-todo-item:hover {
+  background: #f0f0f0;
+  transform: translateY(-1px);
+  padding-right: 30px;
+}
+
+.day-todo-item.completed {
+  opacity: 0.6;
+}
+
+.todo-item-header {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  margin-bottom: 6px;
+  position: relative;
+}
+
+.day-todo-checkbox {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  margin-top: 2px;
+  flex-shrink: 0;
+}
+
+.day-todo-title {
+  flex: 1;
+  font-size: 13px;
+  font-weight: 500;
+  color: #333;
+  line-height: 1.4;
+  word-break: break-word;
+  cursor: pointer;
+}
+
+.day-todo-item.completed .day-todo-title {
+  text-decoration: line-through;
+  color: #999;
+}
+
+.day-todo-delete {
+  position: absolute;
+  right: -20px;
+  top: 0;
+  background: #ff6b6b;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  width: 20px;
+  height: 20px;
+  font-size: 16px;
+  line-height: 1;
+  cursor: pointer;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  transition: all 0.2s ease;
+}
+
+.day-todo-item:hover .day-todo-delete {
+  display: flex;
+}
+
+.day-todo-delete:hover {
+  background: #ff5252;
+  transform: scale(1.1);
+}
+
+.day-todo-time {
+  font-size: 11px;
+  color: #888;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.day-todo-folder {
+  font-size: 10px;
+  padding: 3px 8px;
+  border-radius: 10px;
+  display: inline-block;
+  font-weight: 500;
+  color: #666;
+}
+
+/* 반응형 */
+@media (max-width: 1200px) {
+  .week-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .week-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+
+  .week-day-box {
+    padding: 12px;
+    min-height: 200px;
+  }
+
+  .day-date {
+    font-size: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .week-grid {
+    grid-template-columns: 1fr;
+  }
+}

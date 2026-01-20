@@ -1,0 +1,255 @@
+.folder-sidebar {
+  width: 280px;
+  background: white;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
+  position: sticky;
+  top: 20px;
+  max-height: calc(100vh - 40px);
+  overflow-y: auto;
+}
+
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sidebar-header h2 {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin: 0;
+}
+
+.btn-close-sidebar {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: #999;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.folder-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 16px;
+}
+
+.folder-item-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.folder-item {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  background: #f8f8f8;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: left;
+}
+
+.folder-item:hover {
+  background: #f0f0f0;
+  transform: translateX(4px);
+}
+
+.folder-item.active {
+  background: linear-gradient(135deg, #a8b3ff 0%, #6c8eff 100%);
+  color: white;
+  box-shadow: 0 4px 12px rgba(108, 142, 255, 0.3);
+}
+
+.folder-icon {
+  font-size: 18px;
+}
+
+.folder-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+
+.folder-name {
+  flex: 1;
+  font-size: 15px;
+  font-weight: 500;
+  color: #333;
+}
+
+.folder-item.active .folder-name {
+  color: white;
+}
+
+.folder-count {
+  font-size: 13px;
+  font-weight: 600;
+  color: #999;
+  background: #e0e0e0;
+  padding: 2px 8px;
+  border-radius: 10px;
+  min-width: 24px;
+  text-align: center;
+}
+
+.folder-item.active .folder-count {
+  background: rgba(255, 255, 255, 0.3);
+  color: white;
+}
+
+.folder-actions {
+  display: none;
+  gap: 4px;
+}
+
+.folder-item-wrapper:hover .folder-actions {
+  display: flex;
+}
+
+.btn-folder-edit,
+.btn-folder-delete {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+  font-size: 14px;
+  opacity: 0.6;
+  transition: opacity 0.2s;
+}
+
+.btn-folder-edit:hover,
+.btn-folder-delete:hover {
+  opacity: 1;
+}
+
+.folder-form {
+  background: #f8f8f8;
+  padding: 16px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+.folder-form input {
+  width: 100%;
+  padding: 10px;
+  border: 2px solid #e0e0e0;
+  border-radius: 8px;
+  font-size: 14px;
+  margin-bottom: 12px;
+}
+
+.folder-form input:focus {
+  outline: none;
+  border-color: #a8b3ff;
+}
+
+.folder-form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.folder-form-actions button {
+  flex: 1;
+  padding: 8px;
+  border: none;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-cancel {
+  background: #e0e0e0;
+  color: #666;
+}
+
+.btn-cancel:hover {
+  background: #d0d0d0;
+}
+
+.btn-save {
+  background: #a8b3ff;
+  color: white;
+}
+
+.btn-save:hover {
+  background: #8f9cff;
+}
+
+.btn-add-folder {
+  width: 100%;
+  padding: 12px;
+  background: #f8f8f8;
+  border: 2px dashed #d0d0d0;
+  border-radius: 10px;
+  color: #666;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-add-folder:hover {
+  background: #f0f0f0;
+  border-color: #a8b3ff;
+  color: #6c8eff;
+}
+
+.btn-add-folder span {
+  font-size: 16px;
+  margin-right: 4px;
+}
+
+.sidebar-overlay {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .folder-sidebar {
+    position: fixed;
+    left: -100%;
+    top: 0;
+    height: 100vh;
+    max-height: 100vh;
+    border-radius: 0 16px 16px 0;
+    z-index: 1000;
+    transition: left 0.3s ease;
+  }
+
+  .folder-sidebar.open {
+    left: 0;
+  }
+
+  .btn-close-sidebar {
+    display: block;
+  }
+
+  .sidebar-overlay {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
+  }
+}
